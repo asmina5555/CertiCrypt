@@ -1,4 +1,9 @@
-# CryptoPocket
+# CertiCrypt
+
+CertiCrypt is an enhanced fork of the open-source project CryptoPocket created by Miroslav Pejić.
+
+Original Project:
+https://github.com/miroslavpejic85/cryptopocket
 
 Save your access credentials, encrypt text messages or local files and then decrypt them at any time, providing the desired key, with this simple program all this is possible. No installation required, portable.
 
