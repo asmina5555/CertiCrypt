@@ -1,58 +1,260 @@
-# CertiCrypt
+CertiCrypt
 
-CertiCrypt is an enhanced fork of the open-source project CryptoPocket created by Miroslav Pejić.
+CertiCrypt is an enhanced fork of the open-source project CryptoPocket created by Miroslav Pejić. The original project provides functionality for encrypting text, files, and credentials using symmetric cryptography.
+
+CertiCrypt extends CryptoPocket by introducing Public Key Infrastructure (PKI) based security features such as digital signatures, certificate-based authentication, hybrid encryption, and secure key management. These improvements transform the original application into a more complete cryptographic security tool capable of addressing real-world security challenges.
 
 Original Project:
 https://github.com/miroslavpejic85/cryptopocket
 
-Save your access credentials, encrypt text messages or local files and then decrypt them at any time, providing the desired key, with this simple program all this is possible. No installation required, portable.
+Overview
 
-Nowadays, we have to manage so many accounts that keeping track of all their login details is a truly challenging task. Unless you want to use the same password on every single website, you may need a software utility to help you out.
+CertiCrypt is a portable cryptographic utility that allows users to securely:
 
-CryptoPocket is a relatively simple application that not only enables you to encrypt and store all your credentials, but can also encode text and secure files, as well as decrypt them.
+Store encrypted credentials
 
-<br>
+Encrypt and decrypt files
 
-## Store your account credentials in a secure manner
+Encrypt and decrypt text messages
 
-CryptoPocket allows you to create a local database in which all your login details are stored in an encrypted form. You can enter each account’s name, email address, URL, username and password, as well as provide the encryption key.
+Generate secure passwords
 
-Once an entry has been created, the username and password can only be viewed if the original key is available.
+Digitally sign documents
 
-You can also search for specific items based on their description, associated email or URL, but the entries cannot be sorted.
+Verify digital signatures
 
-![img0](./img/CryptoPocket0.PNG)
+Securely exchange encrypted files using PKI mechanisms
 
-<br>
+The application is implemented using VB.NET (.NET Framework 4.8) and builds upon the architecture of the original CryptoPocket project.
 
-## Encode-decode texts
+No installation is required. The application can run as a portable desktop tool.
 
-When you wish to encrypt a document or message, you can either write the text manually or import a local TXT file. The encoded content is saved in the same folder and can only be decrypted with the correct key.
+Key Security Features
 
-![img1](./img/CryptoPocket1.PNG)
+CertiCrypt integrates modern cryptographic mechanisms designed to ensure:
 
-<br>
+Confidentiality
 
-## Encode-decode files
+Integrity
 
-Things are more or less the same when encrypting files, without any format restrictions.
+Authentication
 
-![img2](./img/CryptoPocket2.PNG)
+Encryption and Confidentiality
 
-<br>
+CertiCrypt uses AES-256 symmetric encryption to encrypt files and text messages.
 
-## Generate random passwords
+Encryption keys are derived using PBKDF2 (Rfc2898DeriveBytes) to ensure strong password-based key generation.
 
-Generate secure credentials at will.
+Encrypted files and messages can only be decrypted using the correct key.
 
-![img3](./img/CryptoPocket3.PNG)
+Digital Signatures
 
-<br>
+CertiCrypt introduces digital signature functionality that allows users to sign files and verify their authenticity.
 
-## Contributing
+Digital signatures provide:
 
-Fell free to make it much safer and to improve it. PR are welcome and greatly appreciated. Thanks!
+Authentication — verifying the identity of the signer
 
-## License
+Integrity — ensuring documents have not been modified
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=AdGuard)](LICENSE)
+Non-repudiation — preventing signers from denying authorship
+
+This feature is particularly useful for secure document distribution and verification.
+
+Certificate-Based Authentication
+
+CertiCrypt leverages Public Key Infrastructure (PKI) to authenticate users using digital certificates.
+
+Certificates bind a user’s identity to their public key and enable secure communication between trusted parties.
+
+The system supports:
+
+Public/private key generation
+
+Certificate validation
+
+Secure identity verification
+
+Hybrid Encryption
+
+CertiCrypt implements hybrid encryption, combining symmetric and asymmetric cryptography.
+
+Workflow
+
+A random AES key encrypts the file or message.
+
+The AES key is encrypted using the recipient’s public key.
+
+The recipient decrypts the AES key using their private key.
+
+This approach ensures both:
+
+High performance
+
+Secure key exchange
+
+Secure Key Management
+
+Private keys are stored securely using password-protected keystores, helping prevent unauthorized access and protecting sensitive cryptographic material.
+
+The system also supports certificate revocation mechanisms to invalidate compromised keys.
+
+Core Features
+
+CertiCrypt provides several integrated features designed to improve security and usability.
+
+Secure Credential Storage
+
+CertiCrypt allows users to create a local encrypted credential database where login details can be stored securely.
+
+Stored fields include:
+
+Description
+
+Email address
+
+Website URL
+
+Username
+
+Password
+
+Credentials are encrypted before being stored and can only be viewed when the correct encryption key is provided.
+
+Text Encryption and Decryption
+
+Users can encrypt and decrypt text messages directly within the application.
+
+Text can be:
+
+Written manually
+
+Imported from a TXT file
+
+The encrypted output can be saved and later decrypted using the appropriate key.
+
+File Encryption
+
+CertiCrypt supports encryption and decryption of files of any format.
+
+Encrypted files are stored locally and can only be decrypted using the correct key.
+
+Random Password Generation
+
+The system includes a secure password generator that uses cryptographically secure random number generation.
+
+Users can generate passwords with customizable parameters such as:
+
+Length
+
+Character types
+
+Special characters
+
+This feature helps users create strong credentials for online accounts.
+
+Improvements Over CryptoPocket
+
+While CryptoPocket provides basic encryption functionality, it lacks several security features required in modern cryptographic systems.
+
+CertiCrypt addresses these limitations.
+
+Feature	CryptoPocket	CertiCrypt
+AES File Encryption	Yes	Yes
+Password Generation	Yes	Yes
+Credential Storage	Yes	Yes
+Digital Signatures	No	Yes
+Certificate Authentication	No	Yes
+Hybrid Encryption	No	Yes
+Secure Key Management	Limited	Improved
+PKI Integration	No	Yes
+
+These enhancements significantly improve the system’s ability to secure communications and verify user identity.
+
+Example Use Cases
+
+CertiCrypt can be applied to several real-world scenarios.
+
+Secure Document Signing
+
+Users can digitally sign documents and verify signatures to ensure authenticity and prevent tampering.
+
+Secure File Sharing
+
+Files can be encrypted and securely transmitted between users using hybrid encryption.
+
+Credential Management
+
+Users can securely store login credentials in an encrypted local database.
+
+Installation and Usage
+Requirements
+
+Windows OS
+
+.NET Framework 4.8
+
+Visual Studio (for building from source)
+
+Running the Application
+Clone the repository
+git clone https://github.com/yourusername/certicrypt.git
+Open the solution in Visual Studio
+CryptoPocket.sln
+Build the project
+
+Compile the solution using Visual Studio.
+
+Run the application
+
+Run the generated executable from the build directory.
+
+Project Structure
+src/
+│
+├── Class/
+│   ├── Cryptology.vb
+│   ├── RandomKeyGenerator.vb
+│   └── RandomP.vb
+│
+├── Forms/
+│   └── Main.vb
+│
+├── Resources/
+│   └── UI assets and icons
+│
+├── CryptoPocket.sln
+└── CryptoPocket.vbproj
+
+Contributing
+
+Contributions are welcome and encouraged.
+
+Developers can help improve CertiCrypt by:
+
+Adding additional cryptographic features
+
+Improving security mechanisms
+
+Refactoring the codebase
+
+Implementing automated testing
+
+Pull requests and suggestions are greatly appreciated.
+
+Attribution
+
+CertiCrypt is based on the open-source project CryptoPocket developed by Miroslav Pejić.
+
+Original repository:
+https://github.com/miroslavpejic85/cryptopocket
+
+The project is distributed under the MIT License, which permits modification and redistribution.
+
+License
+
+MIT License
+
+Copyright (c) 2021 Miroslav Pejić
+
+Modified and extended as CertiCrypt for academic research and development.
