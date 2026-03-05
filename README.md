@@ -1,45 +1,40 @@
-CertiCrypt
+# CertiCrypt
 
 CertiCrypt is an enhanced fork of the open-source project CryptoPocket created by Miroslav Pejić. The original project provides functionality for encrypting text, files, and credentials using symmetric cryptography.
 
 CertiCrypt extends CryptoPocket by introducing Public Key Infrastructure (PKI) based security features such as digital signatures, certificate-based authentication, hybrid encryption, and secure key management. These improvements transform the original application into a more complete cryptographic security tool capable of addressing real-world security challenges.
 
-Original Project:
+Original project:  
 https://github.com/miroslavpejic85/cryptopocket
 
-Overview
+
+# Overview
 
 CertiCrypt is a portable cryptographic utility that allows users to securely:
 
-Store encrypted credentials
-
-Encrypt and decrypt files
-
-Encrypt and decrypt text messages
-
-Generate secure passwords
-
-Digitally sign documents
-
-Verify digital signatures
-
-Securely exchange encrypted files using PKI mechanisms
+- Store encrypted credentials
+- Encrypt and decrypt files
+- Encrypt and decrypt text messages
+- Generate secure passwords
+- Digitally sign documents
+- Verify digital signatures
+- Securely exchange encrypted files using PKI mechanisms
 
 The application is implemented using VB.NET (.NET Framework 4.8) and builds upon the architecture of the original CryptoPocket project.
 
-No installation is required. The application can run as a portable desktop tool.
+No installation is required and the application can run as a portable desktop tool.
 
-Key Security Features
 
-CertiCrypt integrates modern cryptographic mechanisms designed to ensure:
+# Key Security Features
 
-Confidentiality
+CertiCrypt integrates cryptographic mechanisms designed to ensure:
 
-Integrity
+- Confidentiality  
+- Integrity  
+- Authentication  
 
-Authentication
 
-Encryption and Confidentiality
+## Encryption and Confidentiality
 
 CertiCrypt uses AES-256 symmetric encryption to encrypt files and text messages.
 
@@ -47,21 +42,21 @@ Encryption keys are derived using PBKDF2 (Rfc2898DeriveBytes) to ensure strong p
 
 Encrypted files and messages can only be decrypted using the correct key.
 
-Digital Signatures
+
+## Digital Signatures
 
 CertiCrypt introduces digital signature functionality that allows users to sign files and verify their authenticity.
 
 Digital signatures provide:
 
-Authentication — verifying the identity of the signer
-
-Integrity — ensuring documents have not been modified
-
-Non-repudiation — preventing signers from denying authorship
+- Authentication — verifying the identity of the signer
+- Integrity — ensuring documents have not been modified
+- Non-repudiation — preventing signers from denying authorship
 
 This feature is particularly useful for secure document distribution and verification.
 
-Certificate-Based Authentication
+
+## Certificate-Based Authentication
 
 CertiCrypt leverages Public Key Infrastructure (PKI) to authenticate users using digital certificates.
 
@@ -69,145 +64,145 @@ Certificates bind a user’s identity to their public key and enable secure comm
 
 The system supports:
 
-Public/private key generation
+- Public/private key generation
+- Certificate validation
+- Secure identity verification
 
-Certificate validation
 
-Secure identity verification
-
-Hybrid Encryption
+## Hybrid Encryption
 
 CertiCrypt implements hybrid encryption, combining symmetric and asymmetric cryptography.
 
-Workflow
+Workflow:
 
-A random AES key encrypts the file or message.
+1. A random AES key encrypts the file or message.  
+2. The AES key is encrypted using the recipient’s public key.  
+3. The recipient decrypts the AES key using their private key.
 
-The AES key is encrypted using the recipient’s public key.
+This approach ensures both high performance and secure key exchange.
 
-The recipient decrypts the AES key using their private key.
 
-This approach ensures both:
+## Secure Key Management
 
-High performance
-
-Secure key exchange
-
-Secure Key Management
-
-Private keys are stored securely using password-protected keystores, helping prevent unauthorized access and protecting sensitive cryptographic material.
+Private keys are stored securely using password-protected keystores. This helps prevent unauthorized access and protects sensitive cryptographic material.
 
 The system also supports certificate revocation mechanisms to invalidate compromised keys.
 
-Core Features
+
+# Core Features
 
 CertiCrypt provides several integrated features designed to improve security and usability.
 
-Secure Credential Storage
+
+## Secure Credential Storage
 
 CertiCrypt allows users to create a local encrypted credential database where login details can be stored securely.
 
 Stored fields include:
 
-Description
-
-Email address
-
-Website URL
-
-Username
-
-Password
+- Description
+- Email address
+- Website URL
+- Username
+- Password
 
 Credentials are encrypted before being stored and can only be viewed when the correct encryption key is provided.
 
-Text Encryption and Decryption
+
+## Text Encryption and Decryption
 
 Users can encrypt and decrypt text messages directly within the application.
 
 Text can be:
 
-Written manually
-
-Imported from a TXT file
+- Written manually
+- Imported from a TXT file
 
 The encrypted output can be saved and later decrypted using the appropriate key.
 
-File Encryption
+
+## File Encryption
 
 CertiCrypt supports encryption and decryption of files of any format.
 
 Encrypted files are stored locally and can only be decrypted using the correct key.
 
-Random Password Generation
+
+## Random Password Generation
 
 The system includes a secure password generator that uses cryptographically secure random number generation.
 
 Users can generate passwords with customizable parameters such as:
 
-Length
-
-Character types
-
-Special characters
+- Length
+- Character types
+- Special characters
 
 This feature helps users create strong credentials for online accounts.
 
-Improvements Over CryptoPocket
+
+# Improvements Over CryptoPocket
 
 While CryptoPocket provides basic encryption functionality, it lacks several security features required in modern cryptographic systems.
 
 CertiCrypt addresses these limitations.
 
-Feature	CryptoPocket	CertiCrypt
-AES File Encryption	Yes	Yes
-Password Generation	Yes	Yes
-Credential Storage	Yes	Yes
-Digital Signatures	No	Yes
-Certificate Authentication	No	Yes
-Hybrid Encryption	No	Yes
-Secure Key Management	Limited	Improved
-PKI Integration	No	Yes
+| Feature | CryptoPocket | CertiCrypt |
+|--------|-------------|------------|
+| AES File Encryption | Yes | Yes |
+| Password Generation | Yes | Yes |
+| Credential Storage | Yes | Yes |
+| Digital Signatures | No | Yes |
+| Certificate Authentication | No | Yes |
+| Hybrid Encryption | No | Yes |
+| Secure Key Management | Limited | Improved |
+| PKI Integration | No | Yes |
 
-These enhancements significantly improve the system’s ability to secure communications and verify user identity.
+These enhancements improve the system’s ability to secure communications and verify user identity.
 
-Example Use Cases
+
+# Example Use Cases
 
 CertiCrypt can be applied to several real-world scenarios.
 
-Secure Document Signing
+
+## Secure Document Signing
 
 Users can digitally sign documents and verify signatures to ensure authenticity and prevent tampering.
 
-Secure File Sharing
+
+## Secure File Sharing
 
 Files can be encrypted and securely transmitted between users using hybrid encryption.
 
-Credential Management
+
+## Credential Management
 
 Users can securely store login credentials in an encrypted local database.
 
-Installation and Usage
-Requirements
 
-Windows OS
+# Installation and Usage
 
-.NET Framework 4.8
 
-Visual Studio (for building from source)
+## Requirements
 
-Running the Application
+- Windows OS
+- .NET Framework 4.8
+- Visual Studio (for building from source)
+
+
+## Running the Application
+
 Clone the repository
+
+```bash
 git clone https://github.com/yourusername/certicrypt.git
-Open the solution in Visual Studio
+
+Open the solution file in Visual Studio
+
 CryptoPocket.sln
-Build the project
 
-Compile the solution using Visual Studio.
-
-Run the application
-
-Run the generated executable from the build directory.
+Build the project and run the generated executable.
 
 Project Structure
 src/
@@ -225,12 +220,11 @@ src/
 │
 ├── CryptoPocket.sln
 └── CryptoPocket.vbproj
-
 Contributing
 
-Contributions are welcome and encouraged.
+Contributions are welcome.
 
-Developers can help improve CertiCrypt by:
+Possible areas of improvement include:
 
 Adding additional cryptographic features
 
@@ -240,7 +234,7 @@ Refactoring the codebase
 
 Implementing automated testing
 
-Pull requests and suggestions are greatly appreciated.
+Pull requests and suggestions are appreciated.
 
 Attribution
 
